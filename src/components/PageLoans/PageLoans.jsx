@@ -3,14 +3,27 @@ import React from 'react';
 import './PageLoans.css';
 
 import CardLoan from '../CardLoan/CardLoan.jsx';
-import dataFromJSON from '../../services/dataFromJSON';
 
-export default function PageLoans() {
+export default function PageLoans({loansData, toggleModalInvest}) {
+    const loanCardsArr = loansData.map(loan => {
+        return <CardLoan
+            key={loan.id}
+            title={loan.title}
+            available={loan.available}
+            annualisedReturn={loan.annualised_return}
+            termRemaining={loan.term_remaining}
+            ltv={loan.ltv}
+            amount={loan.amount}
+            toggleModalInvest={toggleModalInvest}
+        />
+    });
+
     return (
         <section
-            className="current-loans"
+            className="page-loans"
         >
-
+            <h1 className="page-loans-name">Current Loans</h1>
+            {loanCardsArr}
         </section>
     );
 };

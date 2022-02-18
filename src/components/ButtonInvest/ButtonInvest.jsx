@@ -8,7 +8,7 @@ export default function ButtonInvest({action}) {
             className="button-invest"
             onClick={action}
         >
-
+            Invest
         </button>
     );
 }

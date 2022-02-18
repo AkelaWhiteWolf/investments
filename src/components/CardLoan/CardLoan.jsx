@@ -4,22 +4,24 @@ import ButtonInvest from '../ButtonInvest/ButtonInvest.jsx';
 
 import './CardLoan.css';
 
-export default function CardLoan({title, available, annualised_return: annualisedReturn, term_remaining: termRemaining, ltv, amount}) {
+export default function CardLoan({title, available, annualisedReturn, termRemaining, ltv, amount, toggleModalInvest}) {
     return (
         <article
             className="card-loan"
         >
             <h1 className="title">{title}</h1>
 
-            <p className="details">
-                Available: {available}
-                Annualised Return: {annualisedReturn}
-                Term Remaining: {termRemaining}
-                LTV: {ltv}
-                Amount: {amount}
-            </p>
+            <ul className="details">
+                <li className="details-list__detail">Available: {available}</li>
+                <li className="details-list__detail">Annualised Return: {annualisedReturn}</li>
+                <li className="details-list__detail">Term Remaining: {termRemaining}</li>
+                <li className="details-list__detail">LTV: {ltv}</li>
+                <li className="details-list__detail">Amount: {amount}</li>
+            </ul>
 
-            <ButtonInvest/>
+            <ButtonInvest
+                action={toggleModalInvest}
+            />
         </article>
     );
 }
