@@ -1,5 +1,28 @@
 import currentLoans from '../JSON/current-loans.json';
 
-const loansDataFromJSON = currentLoans.loans;
+function transformDataToNumbers() {
+    const loansArr = [...currentLoans.loans];
+    
+    for (let elem of loansArr) {
+        elem.amount = stringToNumber(elem.amount);
+        elem.annualised_return = stringToNumber(elem.annualised_return);
+        elem.available = stringToNumber(elem.available);
+        elem.id = stringToNumber(elem.id);
+        elem.ltv = stringToNumber(elem.ltv);
+        elem.term_remaining = stringToNumber(elem.term_remaining);
+    }
+        
+    function stringToNumber(str) {
+        const result = Number(str.replace(/,/, '.'));
+        
+        if (!result) throw new Error('This string can not be transformed to nubmer');
+        
+        return result;
+    }
+    
+    return loansArr;
+}
 
-export default loansDataFromJSON;
+const transformedLoansDataFromJSON = transformDataToNumbers();
+
+export default transformedLoansDataFromJSON;

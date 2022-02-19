@@ -5,39 +5,54 @@ import './App.css';
 import PageLoans from '../PageLoans/PageLoans';
 import ModalInvest from '../ModalInvest/ModalInvest.jsx';
 
-import loansDataFromJSON from '../../services/loansDataFromJSON';
+import transformedLoansDataFromJSON from '../../services/loansDataFromJSON';
 
 function App() {
     const [totalAmount, setTotalAmount] = useState(1000);
+    const [loansData, setLoansData] = useState(transformedLoansDataFromJSON);
     const [modalInvestIsVisible, setModalInvestIsVisible] = useState(false);
+    const [chosedLoanToInvestId, setChosedLoanToInvestId] = useState(undefined);
 
     const modalInvest = modalInvestIsVisible ?
-        <ModalInvest/>
+        <ModalInvest
+            investMoney={investMoney}
+            toggleModalInvest={toggleModalInvest}
+        />
         :
         null;
     
     function investMoney(money) {
-        console.log(`invested ${money}`);
-    }
+        if (money > totalAmount) {
+            alert('You can not invest more then your total amount');
+            return;
+        }
 
-    function toggleModalInvest() {
+        const newState = loansData.map(loan => {
+            if (loan.id === chosedLoanToInvestId) loan.amount += money;
+            return loan;
+        });
+        
+        setLoansData(newState);
+        setTotalAmount(state => state - money);
         setModalInvestIsVisible(state => !state);
     }
 
-    console.log(loansDataFromJSON);
+    function toggleModalInvest(id) {
+        setChosedLoanToInvestId(id);
+        setModalInvestIsVisible(state => !state);
+    }
+
+    console.log(loansData);
     return (
         <>
             <PageLoans
-                loansData={loansDataFromJSON}
+                loansData={loansData}
                 toggleModalInvest={toggleModalInvest}
             />
 
             <p className="total-amount">Total amount available for investments: {totalAmount}</p>
 
-            <ModalInvest
-                investMoney={investMoney}
-                toggleModalInvest={toggleModalInvest}    
-            />
+            {modalInvest}
         </>
     );
 }

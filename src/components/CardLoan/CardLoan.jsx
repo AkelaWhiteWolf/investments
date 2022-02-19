@@ -1,10 +1,12 @@
-import React from 'react';
+import {React, useState} from 'react';
 
 import ButtonInvest from '../ButtonInvest/ButtonInvest.jsx';
 
 import './CardLoan.css';
 
-export default function CardLoan({title, available, annualisedReturn, termRemaining, ltv, amount, toggleModalInvest}) {
+export default function CardLoan({id, title, available, annualisedReturn, termRemaining, ltv, amount, toggleModalInvest}) {
+    // const [loanAmount, setLoanAmount] = useState(amount);
+
     return (
         <article
             className="card-loan"
@@ -20,7 +22,7 @@ export default function CardLoan({title, available, annualisedReturn, termRemain
             </ul>
 
             <ButtonInvest
-                action={toggleModalInvest}
+                action={() => toggleModalInvest(id)}
             />
         </article>
     );

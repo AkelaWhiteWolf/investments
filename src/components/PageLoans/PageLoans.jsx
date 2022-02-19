@@ -4,10 +4,11 @@ import './PageLoans.css';
 
 import CardLoan from '../CardLoan/CardLoan.jsx';
 
-export default function PageLoans({loansData, toggleModalInvest}) {
+export default function PageLoans({loansData, toggleModalInvest}) {    
     const loanCardsArr = loansData.map(loan => {
         return <CardLoan
             key={loan.id}
+            id={loan.id}
             title={loan.title}
             available={loan.available}
             annualisedReturn={loan.annualised_return}
@@ -23,6 +24,7 @@ export default function PageLoans({loansData, toggleModalInvest}) {
             className="page-loans"
         >
             <h1 className="page-loans-name">Current Loans</h1>
+            
             {loanCardsArr}
         </section>
     );

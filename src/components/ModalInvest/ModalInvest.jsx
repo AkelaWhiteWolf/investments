@@ -7,32 +7,49 @@ import './ModalInvest.css';
 export default function ModalInvest({loanTitle, amountAvailable, investMoney, toggleModalInvest}) {
     const [inputedMoney, setInputedMoney] = useState(0);
 
+    // TODO: убрать эту заглушку
+    loanTitle = (
+        <ul>
+            <li>Title-1</li>
+            <li>Title-2</li>
+        </ul>
+    );
+
     return (
-        <>
-            <h2 className="modal-invest-name">Invest In Loan</h2>
-            
-            {loanTitle}
+        <div className="modal-wrapper">
 
-            <p>Amount available: {amountAvailable}</p>
-            
-            <div className="modal-wrapper">
-                <form className="modal-window modal-invest">
-                    <input
-                        type="number"
-                        className="modal-invest__input"
-                        onInput={e => setInputedMoney(Number(e.value))}/>
-                    <ButtonInvest action={e => {
-                        e.preventDefault();
-
-                        investMoney(inputedMoney);
-                    }}/>
-                </form>
+            <form className="modal-window modal-invest">
+                <h2 className="modal-invest-name">Invest In Loan</h2>
                 
-                <div
-                    className="overlay"
+                {loanTitle}
+
+                <p>Amount available: {amountAvailable}</p>
+                
+                <input
+                    type="number"
+                    placeholder="How much do you want to invest?"
+                    autoFocus
+                    className="modal-invest__input"
+                    onInput={e => setInputedMoney(Number(e.target.value))}
+                />
+                
+                <ButtonInvest action={e => {
+                    e.preventDefault();
+
+                    investMoney(inputedMoney);
+                }}/>
+
+                <button
                     onClick={toggleModalInvest}
-                ></div>
-            </div>
-        </>
+                >
+                    Cancel
+                </button>
+            </form>
+            
+            <div
+                className="overlay"
+                onClick={toggleModalInvest}
+            ></div>
+        </div>
     )
 }
