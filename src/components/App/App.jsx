@@ -26,6 +26,10 @@ function App() {
             alert('You can not invest more then your total amount');
             return;
         }
+        if (money < 0) {
+            alert('You can not invest negative amount');
+            return;
+        }
 
         const newState = loansData.map(loan => {
             if (loan.id === chosedLoanToInvestId) loan.amount += money;

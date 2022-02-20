@@ -13,7 +13,8 @@ function transformDataToNumbers() {
     }
         
     function stringToNumber(str) {
-        const result = Number(str.replace(/,/, '.'));
+        let result = Number(str.replace(/,/, '.'));
+        result = (Math.floor(result * 100)) / 100;
         
         if (!result) throw new Error('This string can not be transformed to nubmer');
         
