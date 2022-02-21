@@ -26,13 +26,17 @@ function App() {
             alert('You can not invest more then your total amount');
             return;
         }
-        if (money < 0) {
-            alert('You can not invest negative amount');
+        if (money <= 0) {
+            alert('You can not invest negative or zero amount');
             return;
         }
 
         const newState = loansData.map(loan => {
-            if (loan.id === chosedLoanToInvestId) loan.amount += money;
+            if (loan.id === chosedLoanToInvestId) {
+                loan.amount += money;
+                loan.wasInvested = true;
+            };
+
             return loan;
         });
         
@@ -48,7 +52,7 @@ function App() {
 
     console.log(loansData);
     return (
-        <>
+        <main className="main">
             <PageLoans
                 loansData={loansData}
                 toggleModalInvest={toggleModalInvest}
@@ -57,7 +61,7 @@ function App() {
             <p className="total-amount">Total amount available for investments: {totalAmount}</p>
 
             {modalInvest}
-        </>
+        </main>
     );
 }
 

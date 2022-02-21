@@ -1,0 +1,15 @@
+.card-loan {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 6px 2px lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.page-loans__card-loan {
+    padding: 15px 15px;
+}
+
+.details-list__li {
+    list-style-type: none;
+}

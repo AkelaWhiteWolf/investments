@@ -1,0 +1,10 @@
+.page-loans {
+    display: grid;
+    grid-template: 50px / 1fr 1fr;
+    grid-auto-rows: 200px;
+    grid-gap: 30px;
+}
+
+.page-loans__name {
+    grid-column: 1 / span 2;
+}

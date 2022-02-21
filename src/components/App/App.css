@@ -1,0 +1,19 @@
+* {
+    margin: 0 0;
+    padding: 0 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(211, 211, 211, 0.1);
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    width: 100%;
+    max-width: 1170px;
+}

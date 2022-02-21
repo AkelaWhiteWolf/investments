@@ -15,6 +15,7 @@ export default function PageLoans({loansData, toggleModalInvest}) {
             termRemaining={loan.term_remaining}
             ltv={loan.ltv}
             amount={loan.amount}
+            wasInvested={loan.wasInvested}
             toggleModalInvest={toggleModalInvest}
         />
     });
@@ -23,7 +24,7 @@ export default function PageLoans({loansData, toggleModalInvest}) {
         <section
             className="page-loans"
         >
-            <h1 className="page-loans-name">Current Loans</h1>
+            <h1 className="page-loans__name">Current Loans</h1>
             
             {loanCardsArr}
         </section>

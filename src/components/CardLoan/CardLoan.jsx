@@ -4,25 +4,31 @@ import ButtonInvest from '../ButtonInvest/ButtonInvest.jsx';
 
 import './CardLoan.css';
 
-export default function CardLoan({id, title, available, annualisedReturn, termRemaining, ltv, amount, toggleModalInvest}) {
-    // const [loanAmount, setLoanAmount] = useState(amount);
+export default function CardLoan({id, title, available, annualisedReturn, termRemaining, ltv, amount, wasInvested, toggleModalInvest}) {
+    const wasInvestedMarker = wasInvested ?
+        <p className="was-invested-marker">Invested</p>
+        :
+        null;
 
     return (
         <article
-            className="card-loan"
+            className="card-loan page-loans__card-loan"
         >
             <h1 className="title">{title}</h1>
 
-            <ul className="details">
-                <li className="details-list__detail">Available: {available}</li>
-                <li className="details-list__detail">Annualised Return: {annualisedReturn}</li>
-                <li className="details-list__detail">Term Remaining: {termRemaining}</li>
-                <li className="details-list__detail">LTV: {ltv}</li>
-                <li className="details-list__detail">Amount: {amount}</li>
+            {wasInvestedMarker}
+
+            <ul className="details-list">
+                <li className="details-list__li">Available: {available}</li>
+                <li className="details-list__li">Annualised Return: {annualisedReturn}</li>
+                <li className="details-list__li">Term Remaining: {termRemaining}</li>
+                <li className="details-list__li">LTV: {ltv}</li>
+                <li className="details-list__li">Amount: {amount}</li>
             </ul>
 
             <ButtonInvest
                 action={() => toggleModalInvest(id)}
+                clazz="card-loan__button-invest"
             />
         </article>
     );

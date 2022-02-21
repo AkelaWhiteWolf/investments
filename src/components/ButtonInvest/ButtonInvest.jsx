@@ -2,10 +2,12 @@ import React from 'react';
 
 import './ButtonInvest.css';
 
-export default function ButtonInvest({action}) {
+export default function ButtonInvest({action, clazz}) {
+    const classNames = `button-invest ${clazz}`;
+    
     return (
         <button
-            className="button-invest"
+            className={classNames}
             onClick={action}
         >
             Invest
