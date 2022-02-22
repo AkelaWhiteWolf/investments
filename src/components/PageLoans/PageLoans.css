@@ -1,7 +1,7 @@
 .page-loans {
     display: grid;
     grid-template: 50px / 1fr 1fr;
-    grid-auto-rows: 200px;
+    grid-auto-rows: 250px;
     grid-gap: 30px;
 }
 

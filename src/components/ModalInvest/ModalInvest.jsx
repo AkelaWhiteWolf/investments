@@ -32,18 +32,25 @@ export default function ModalInvest({loanTitle, amountAvailable, investMoney, to
                     className="modal-invest__input"
                     onInput={e => setInputedMoney(Number(e.target.value))}
                 />
+
+                <div className="modal-window__button-container">
+                    <button
+                        className="button button-cancel modal-window__button"
+                        onClick={toggleModalInvest}
+                    >
+                        Cancel
+                    </button>
+                    
+                    <ButtonInvest
+                        action={e => {
+                            e.preventDefault();
+
+                            investMoney(inputedMoney);
+                        }}
+                        clazz="modal-window__button"
+                    />
+                </div>
                 
-                <ButtonInvest action={e => {
-                    e.preventDefault();
-
-                    investMoney(inputedMoney);
-                }}/>
-
-                <button
-                    onClick={toggleModalInvest}
-                >
-                    Cancel
-                </button>
             </form>
             
             <div

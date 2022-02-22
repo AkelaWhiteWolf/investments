@@ -21,9 +21,9 @@
     border: 1px solid black;
     border-radius: 15px;
     padding: 15px 15px;
-    display: grid;
-    grid-template: 1fr 6fr 0.5fr / 1fr 1fr;
-    grid-gap: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .modal-invest__input {
@@ -36,6 +36,23 @@
 }
 .modal-invest__input:focus {
     border-bottom: 3px solid lightgreen;
+}
+
+.modal-window__button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-cancel {
+    background-color: rgba(255, 0, 0, 0.9);
+}
+.button-cancel:hover {
+    background-color: rgba(255, 0, 0, 0.6);
+}
+
+.modal-window__button {
+    width: 35%;
+    height: 35px;
 }
 
 .overlay {
