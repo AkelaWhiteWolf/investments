@@ -59,7 +59,7 @@ function App() {
                 toggleModalInvest={toggleModalInvest}
             />
 
-            <p className="total-amount">Total amount available for investments: {totalAmount}</p>
+            <p className="total-amount main__total-amount">Total amount available for investments: {totalAmount}</p>
 
             {modalInvest}
         </main>

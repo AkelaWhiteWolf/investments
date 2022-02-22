@@ -4,7 +4,12 @@
     grid-auto-rows: 250px;
     grid-gap: 30px;
 }
+.main__page-loans {
+    margin-top: 30px;
+}
 
 .page-loans__name {
     grid-column: 1 / span 2;
+    font-style: italic;
+    font-size: 2.5em;
 }

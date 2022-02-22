@@ -24,4 +24,13 @@ body {
 .main {
     width: 100%;
     max-width: 1170px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main__total-amount {
+    margin-top: 30px;
+    align-self: center;
+    font-size: 1.3em;
+    font-weight: bold;
 }

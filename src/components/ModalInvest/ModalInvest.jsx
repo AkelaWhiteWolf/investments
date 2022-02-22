@@ -16,7 +16,7 @@ export default function ModalInvest({investMoney, toggleModalInvest, chosedLoanT
                 <ul className="details-list">
                     <li className="details-list__li">Available: {chosedLoanToInvest.available}</li>
                     <li className="details-list__li">Annualised Return: {chosedLoanToInvest.annualised_return}</li>
-                    <li className="details-list__li">Term Remaining: {chosedLoanToInvest.term_remaining}</li>
+                    <li className="details-list__li">Loan ends in: {chosedLoanToInvest.term_remaining}</li>
                     <li className="details-list__li">LTV: {chosedLoanToInvest.ltv}</li>
                     <li className="details-list__li">Amount: {chosedLoanToInvest.amount}</li>
                 </ul>

@@ -23,7 +23,7 @@ export default function PageLoans({loansData, toggleModalInvest}) {
 
     return (
         <section
-            className="page-loans"
+            className="page-loans main__page-loans"
         >
             <h1 className="page-loans__name">Current Loans</h1>
             
