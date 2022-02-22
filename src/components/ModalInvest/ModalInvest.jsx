@@ -4,16 +4,8 @@ import ButtonInvest from '../ButtonInvest/ButtonInvest.jsx';
 
 import './ModalInvest.css';
 
-export default function ModalInvest({loanTitle, amountAvailable, investMoney, toggleModalInvest}) {
+export default function ModalInvest({investMoney, toggleModalInvest, chosedLoanToInvest}) {
     const [inputedMoney, setInputedMoney] = useState(0);
-
-    // TODO: убрать эту заглушку
-    loanTitle = (
-        <ul>
-            <li>Title-1</li>
-            <li>Title-2</li>
-        </ul>
-    );
 
     return (
         <div className="modal-wrapper">
@@ -21,9 +13,13 @@ export default function ModalInvest({loanTitle, amountAvailable, investMoney, to
             <form className="modal-window modal-invest">
                 <h2 className="modal-invest-name">Invest In Loan</h2>
                 
-                {loanTitle}
-
-                <p>Amount available: {amountAvailable}</p>
+                <ul className="details-list">
+                    <li className="details-list__li">Available: {chosedLoanToInvest.available}</li>
+                    <li className="details-list__li">Annualised Return: {chosedLoanToInvest.annualised_return}</li>
+                    <li className="details-list__li">Term Remaining: {chosedLoanToInvest.term_remaining}</li>
+                    <li className="details-list__li">LTV: {chosedLoanToInvest.ltv}</li>
+                    <li className="details-list__li">Amount: {chosedLoanToInvest.amount}</li>
+                </ul>
                 
                 <input
                     type="number"

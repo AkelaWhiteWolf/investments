@@ -4,7 +4,7 @@ import ButtonInvest from '../ButtonInvest/ButtonInvest.jsx';
 
 import './CardLoan.css';
 
-export default function CardLoan({id, title, available, annualisedReturn, termRemaining, ltv, amount, wasInvested, toggleModalInvest}) {
+export default function CardLoan({id, title, available, annualisedReturn, termRemaining, ltv, amount, wasInvested, toggleModalInvest, loanData}) {
     const wasInvestedMarker = wasInvested ?
         <p className="was-invested-marker">Invested</p>
         :
@@ -27,7 +27,7 @@ export default function CardLoan({id, title, available, annualisedReturn, termRe
             </ul>
 
             <ButtonInvest
-                action={() => toggleModalInvest(id)}
+                action={() => toggleModalInvest(loanData)}
                 clazz="card-loan__button-invest"
             />
         </article>

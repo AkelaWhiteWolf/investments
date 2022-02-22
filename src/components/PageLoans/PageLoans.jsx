@@ -17,6 +17,7 @@ export default function PageLoans({loansData, toggleModalInvest}) {
             amount={loan.amount}
             wasInvested={loan.wasInvested}
             toggleModalInvest={toggleModalInvest}
+            loanData={loan}
         />
     });
 

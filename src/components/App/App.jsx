@@ -11,12 +11,13 @@ function App() {
     const [totalAmount, setTotalAmount] = useState(1000);
     const [loansData, setLoansData] = useState(transformedLoansDataFromJSON);
     const [modalInvestIsVisible, setModalInvestIsVisible] = useState(false);
-    const [chosedLoanToInvestId, setChosedLoanToInvestId] = useState(undefined);
+    const [chosedLoanToInvest, setChosedLoanToInvest] = useState(undefined);
 
     const modalInvest = modalInvestIsVisible ?
         <ModalInvest
             investMoney={investMoney}
             toggleModalInvest={toggleModalInvest}
+            chosedLoanToInvest={chosedLoanToInvest}
         />
         :
         null;
@@ -32,7 +33,7 @@ function App() {
         }
 
         const newState = loansData.map(loan => {
-            if (loan.id === chosedLoanToInvestId) {
+            if (loan.id === chosedLoanToInvest.id) {
                 loan.amount += money;
                 loan.wasInvested = true;
             };
@@ -45,8 +46,8 @@ function App() {
         setModalInvestIsVisible(state => !state);
     }
 
-    function toggleModalInvest(id) {
-        setChosedLoanToInvestId(id);
+    function toggleModalInvest(loanData) {
+        setChosedLoanToInvest(loanData);
         setModalInvestIsVisible(state => !state);
     }
 
